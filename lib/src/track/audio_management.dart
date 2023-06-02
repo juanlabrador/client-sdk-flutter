@@ -125,11 +125,11 @@ Future<NativeAudioConfiguration> defaultNativeAudioConfigurationFunc(
   //
   if (state == AudioTrackState.remoteOnly) {
     return NativeAudioConfiguration(
-      appleAudioCategory: AppleAudioCategory.playback,
+      appleAudioCategory: AppleAudioCategory.playAndRecord,
       appleAudioCategoryOptions: {
         AppleAudioCategoryOption.mixWithOthers,
       },
-      appleAudioMode: AppleAudioMode.spokenAudio,
+      appleAudioMode: AppleAudioMode.voiceChat,
     );
   } else if ([
     AudioTrackState.localOnly,
@@ -141,13 +141,13 @@ Future<NativeAudioConfiguration> defaultNativeAudioConfigurationFunc(
         AppleAudioCategoryOption.allowBluetooth,
         AppleAudioCategoryOption.mixWithOthers,
       },
-      appleAudioMode: AppleAudioMode.videoChat,
+      appleAudioMode: AppleAudioMode.voiceChat,
     );
   }
 
   return NativeAudioConfiguration(
-    appleAudioCategory: AppleAudioCategory.soloAmbient,
+    appleAudioCategory: AppleAudioCategory.playAndRecord,
     appleAudioCategoryOptions: {},
-    appleAudioMode: AppleAudioMode.default_,
+    appleAudioMode: AppleAudioMode.voiceChat,
   );
 }
